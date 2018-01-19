@@ -44,19 +44,19 @@ var bio = {
 
 		//Footer
 
-		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 		$("#footerContacts").append(formattedMobile);
 
-		var formattedEMAIL = HTMLemail.replace("%data%", bio.contacts.email);
+		formattedEMAIL = HTMLemail.replace("%data%", bio.contacts.email);
 		$("#footerContacts").append(formattedEMAIL);
 
-		var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+		formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
 		$("#footerContacts").append(formattedTwitter);
 
-		var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+		formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
 		$("#footerContacts").append(formattedGitHub);
 
-		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+		formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 		$("#footerContacts").append(formattedLocation);
 
 		//var formattedcontacts = HTMLcontactGeneric.replace("%data%",bio.name);
@@ -75,7 +75,7 @@ var bio = {
 			$("#skills").append(formattedSkills);
 		}
 	}
-}
+};
 
 bio.display();
 
@@ -116,7 +116,7 @@ bio.display();
 		$(".work-entry:last").append(formattedDescription);
 	});
   }
- }
+ };
 
 work.display();
 
@@ -196,7 +196,7 @@ var education ={
 	});
 }
 
- }
+ };
 
 education.display();
 
@@ -232,7 +232,7 @@ var projects = {
 		}
 	});
   }
-}
+};
 
 projects.display();
 
