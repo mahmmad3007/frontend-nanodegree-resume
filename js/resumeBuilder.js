@@ -161,36 +161,36 @@ var education ={
 		$("#education").append(HTMLschoolStart);
 
 		var formattedName=HTMLschoolName.replace("%data%",school.name);
-		$(".school-entry:last").append(formattedName);
+		$(".education-entry:last").append(formattedName);
 
 		var formattedDegree=HTMLschoolDegree.replace("%data%", school.degree);
-		$(".school-entry:last").append(formattedDegree);
+		$(".education-entry:last").append(formattedDegree);
 
 		var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
-		$(".school-entry:last").append(formattedDates);
+		$(".education-entry:last").append(formattedDates);
 
 		var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
-		$(".school-entry:last").append(formattedLocation);
+		$(".education-entry:last").append(formattedLocation);
 		
 		var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors);
-		$(".school-entry:last").append(formattedMajor);
+		$(".education-entry:last").append(formattedMajor);
 				
 		if (education.OnlineCourses.length > 0 ) {
 			education.OnlineCourses.forEach(function(course){
 				var formattedClasses =  HTMLonlineClasses.replace("%data%", course);
-				$(".school-entry:last").append(formattedClasses);
+				$(".education-entry:last").append(formattedClasses);
 
 				var formattedTitle =  HTMLonlineTitle.replace("%data%", course.title);
-				$(".school-entry:last").append(formattedTitle);
+				$(".education-entry:last").append(formattedTitle);
 
 				var formattedschool =  HTMLonlineSchool.replace("%data%", course.school);
-				$(".school-entry:last").append(formattedschool);
+				$(".education-entry:last").append(formattedschool);
 
 				var formattedDates =  HTMLonlineDates.replace("%data%", course.dates);
-				$(".school-entry:last").append(formattedDates);
+				$(".education-entry:last").append(formattedDates);
 
 				var formattedURL =  HTMLonlineURL.replace("%data%", course.url);
-				$(".school-entry:last").append(formattedURL);
+				$(".education-entry:last").append(formattedURL);
 			});
 		}
 	});
