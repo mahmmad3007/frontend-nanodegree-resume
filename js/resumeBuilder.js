@@ -28,51 +28,27 @@ var bio = {
 		$("#header").append(formattedImage);
 
 		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-		$("#topContacts").append(formattedMobile);
+		$("#topContacts, #footerContacts").append(formattedMobile);
 
 		var formattedEMAIL = HTMLemail.replace("%data%", bio.contacts.email);
-		$("#topContacts").append(formattedEMAIL);
+		$("#topContacts,#footerContacts").append(formattedEMAIL);
 
 		var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-		$("#topContacts").append(formattedTwitter);
+		$("#topContacts, #footerContacts").append(formattedTwitter);
 
 		var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
-		$("#topContacts").append(formattedGitHub);
+		$("#topContacts, #footerContacts").append(formattedGitHub);
 
 		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-		$("#topContacts").append(formattedLocation);
+		$("#topContacts,#footerContacts").append(formattedLocation);
 
-		//Footer
-
-		formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-		$("#footerContacts").append(formattedMobile);
-
-		formattedEMAIL = HTMLemail.replace("%data%", bio.contacts.email);
-		$("#footerContacts").append(formattedEMAIL);
-
-		formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-		$("#footerContacts").append(formattedTwitter);
-
-		formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
-		$("#footerContacts").append(formattedGitHub);
-
-		formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-		$("#footerContacts").append(formattedLocation);
-
-		//var formattedcontacts = HTMLcontactGeneric.replace("%data%",bio.name);
-		//$("#header").prepend(formattedcontacts);
-
-		if(bio.skills.length>0 ){
+		if(bio.skills.length>0){
 			$("#header").append(HTMLskillsStart);
+			bio.skills.forEach(function(skill){
+			var formattedSkills = HTMLskills.replace("%data%", skill);
+			$("#skills").append(formattedSkills);
 
-			var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
-			$("#skills").append(formattedSkills);
-			formattedSkills=HTMLskills.replace("%data%", bio.skills[1]);
-			$("#skills").append(formattedSkills);
-			formattedSkills=HTMLskills.replace("%data%", bio.skills[2]);
-			$("#skills").append(formattedSkills);
-			formattedSkills=HTMLskills.replace("%data%", bio.skills[3]);
-			$("#skills").append(formattedSkills);
+			});
 		}
 	}
 };
@@ -86,12 +62,14 @@ bio.display();
  	{
  		"employer":" University of Dammam",
  		"title":"System Analyset",
+ 		"location": "Dammam, Saudi Arabia",
  		"dates":"Januray 10, 2012 - Current",
  		"description":" Get  clinet requerments in order to design system that meet thier expectation "
  	},
  	{
  		"employer":" Royal Commission in Jubail and Yanbu",
  		"title":"Computer Science lecturer",
+ 		"location":"Yanbu, Saudi Arabia",
  		"dates":"2006 - Novmber 30, 2008",
  		"description":" teaching computer science for high school students"
  	}
@@ -108,7 +86,10 @@ bio.display();
 		var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
 		var formattedEmployerTitle = formattedEmployer+formattedTitle;
 		$(".work-entry:last").append(formattedEmployerTitle);
-
+		
+		var formattedWorkLocation=HTMLworkLocation.replace("%data%", job.location);
+		$(".work-entry:last").append(formattedWorkLocation);
+		
 		var formattedDates=HTMLworkDates.replace("%data%", job.dates);
 		$(".work-entry:last").append(formattedDates);
 
@@ -127,15 +108,15 @@ var education ={
 		"location":"Melbourne, Australia",
 		"degree":"Master",
 		"majors":["Computer Science"],
-		"dates": 2011,
+		"dates": "2009-2011",
 		"url": "http://la trobe.edu.au"
 	},
 	{
 		"name":"King Saud University",
 		"location":"Riyadh, Australia",
-		"degree":"Bacheloar",
+		"degree":"Bachelor",
 		"majors":["Computer Science"],
-		"dates": 2006,
+		"dates":"2004-2006",
 		"url": "http://ksu.edu.sa"
 	}
   ],
@@ -143,13 +124,13 @@ var education ={
 	{
 		"title": "front end develpment",
 		"school": "Udacity",
-		"dates": 2018,
+		"dates": "2017-2018",
 		"url": "https://sa.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 	},
 	{
 		"title": "Cobit",
 		"school": "Internation school",
-		"dates": 2019,
+		"dates": "2018-2019",
 		"url": "http://www.isaca.org/Knowledge-Center/COBIT/Pages/Overview.aspx"
 
 	} 
@@ -201,7 +182,6 @@ var education ={
 education.display();
 
 
-
 var projects = {
 	"projects" : [
 	 {
@@ -236,11 +216,6 @@ var projects = {
 
 projects.display();
 
-
-
-
-
-
 function locationizer(work_obj) {
 	var locationArray = [];
 	work_obj.jobs.forEach(function(job){
@@ -252,24 +227,6 @@ function locationizer(work_obj) {
 }
 
 
-
-/*
-$(document).click(function(loc) {
-	var x=loc.pageX;
-	var y=loc.pageY;
-
-	logClicks(x,y);
-});
-function inName(name) {
-	name=name.trim().split("");
-	console.log(name);
-	name[1] = name [1].toUpperCase();
-	name[0] = name[0]. slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-
-	return name [0] + "" + name[1];
-}
-$('#main').append(internationalizeButton);
-*/
 //my map here....
 
 $("#mapDiv").append(googleMap);
