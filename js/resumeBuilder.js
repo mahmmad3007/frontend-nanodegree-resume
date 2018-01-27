@@ -9,11 +9,11 @@ var bio = {
 		"github":"mahmmad3007",
 		"twitter":"@altariqi1",
 		"location": "Riyadh" },
-	"welocmeMessage": " Welcome to my page, I hop my resume meet your expactation and be one of your employee",
+	"welcomeMessage": " Welcome to my page, I hop my resume meet your expactation and be one of your employee",
 	"skills": [
 		"Programming ", "PL/SGL ", "Java ", "web develpment ", "strong leadership "
 		],
-	"bioPic": "images/fry.jpg",
+	"biopic": "images/fry.jpg",
 
 	display: function(){
 		 //my name introducation
@@ -24,8 +24,11 @@ var bio = {
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 		$("#header").append(formattedRole);
 		
-		var formattedImage = HTMLbioPic.replace("%data%", bio.bioPic);
+		var formattedImage = HTMLbioPic.replace("%data%",bio.biopic);
 		$("#header").append(formattedImage);
+
+		var formattedwelcomeMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+		$("#header").append(formattedwelcomeMessage);
 
 		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 		$("#topContacts, #footerContacts").append(formattedMobile);
@@ -120,7 +123,7 @@ var education ={
 		"url": "http://ksu.edu.sa"
 	}
   ],
-	"OnlineCourses": [
+	"onlineCourses": [
 	{
 		"title": "front end develpment",
 		"school": "Udacity",
@@ -156,8 +159,8 @@ var education ={
 		var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors);
 		$(".education-entry:last").append(formattedMajor);
 				
-		if (education.OnlineCourses.length > 0 ) {
-			education.OnlineCourses.forEach(function(course){
+		if (education.onlineCourses.length > 0 ) {
+			education.onlineCourses.forEach(function(course){
 				var formattedClasses =  HTMLonlineClasses.replace("%data%", course);
 				$(".education-entry:last").append(formattedClasses);
 
